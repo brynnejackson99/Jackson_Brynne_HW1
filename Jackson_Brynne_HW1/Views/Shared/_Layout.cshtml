@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/styles.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="footers.css" rel="stylesheet">
+</head>
+<body>
+
+
+
+    <!--This is the code for the navbar -->
+    <!--<nav class="navbar navbar-expand-lg navbar-dark bg-primary" > -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-nav-scroll sticky-sm-top">
+        <div class="container-fluid">
+
+            <!--add name on far right of nav bar-->
+            <div style="font-family:Brush Script MT, cursive">
+                <a class="navbar-brand" href="#">Brynne Jackson</a>
+                <br />
+                <a class="navbar-brand" href="#">University of Texas</a>
+            </div>
+
+            <!--This is the code for the "hamburger menu" button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <!--This is the link to the home page - you can leave this as is -->
+            <a asp-controller="Home" asp-action="Index" class="navbar-brand"><span class="fas fa-home"></span>&nbsp;Home</a>
+
+
+            <!--everything in this section will collapse when the screen is small -->
+            <div class="collapse navbar-collapse" id="nav-content">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!--TODO: Products is included here as an example, but you will need to edit this link and add more -->
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="About">
+                            <span class="fas fa-address-card"></span>&nbsp;About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Travel">
+                            <span class="fas fa-plane"></span>&nbsp;Travel
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="ReturnResume">
+                            <span class="fas fa-file-image"></span>&nbsp;Resume
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+    <!--this is the main content section of the website -->
+    <div class="container">
+        <!--NOTE: This is where the code from the main view is inserted -->
+        @RenderBody()
+    </div>
+
+
+
+
+
+
+    <!--this is the footer of the website -->
+    <div class="container">
+        <footer class="py-3 my-4">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="https://youtu.be/hnT5EVua-yU" class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a asp-controller="Home" asp-action="About" class="nav-link px-2 text-muted">About</a></li>
+                <li class="nav-item"><a asp-controller="Home" asp-action="Travel" class="nav-link px-2 text-muted">Travel</a></li>
+                <li class="nav-item"><a asp-controller="Home" asp-action="ReturnResume" class="nav-link px-2 text-muted">Resume</a></li>
+            </ul>
+            <p class="text-center text-muted">
+                <span style="font-size: 30px; color: white;">
+                    <a style="text-decoration:none" href="https://www.instagram.com/brynne_jackson/" class="fab fa-instagram"> </a>
+                    <a style="text-decoration:none" href="mailto:Brynnejackson99@yahoo.com?subject=Inquiry from Home Page" class="fab fa-yahoo"> </a>
+                </span>&nbsp;
+            </p>
+        </footer>
+    </div>
+
+
+
+
+
+    <!--This code references different script libraries to make your page responsive -->
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
